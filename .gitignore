@@ -21,3 +21,6 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/LuisMendez_Tarea3/nbproject/private/
+/Codor_Feliz-Run1.0/nbproject/private/
+/Codor_Feliz-Run1.0/build/
