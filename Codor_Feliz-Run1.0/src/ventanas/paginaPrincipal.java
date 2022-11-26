@@ -1,8 +1,5 @@
 package ventanas;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 public class paginaPrincipal extends javax.swing.JFrame {
 
@@ -17,8 +14,8 @@ public class paginaPrincipal extends javax.swing.JFrame {
             "Codorniz de Gambel", "Codorniz de Montaña", "Codorniz California Valley",
             "Codorniz ocelada", "Codorniz escamosa", "Codorniz norteña",};
 
-        for (String listaEspecie : listaEspecies) {
-            cb_especieCodorniz.addItem(listaEspecie);
+        for (String especie : listaEspecies) {
+            cb_especieCodorniz.addItem(especie);
         }
     }
 
@@ -55,6 +52,7 @@ public class paginaPrincipal extends javax.swing.JFrame {
         jPanel_ResultadoCarrera = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Codor Feliz 1.0");
         setLocationByPlatform(true);
 
         jLabel_titulo.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
@@ -172,7 +170,6 @@ public class paginaPrincipal extends javax.swing.JFrame {
                             .addComponent(tf_edadCodorniz, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                             .addComponent(tf_nombreCodorniz, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tf_identificacionCodorniz, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel_RegistroCodornizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel_RegistroCodornizLayout.createSequentialGroup()
                                 .addGroup(jPanel_RegistroCodornizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,7 +184,7 @@ public class paginaPrincipal extends javax.swing.JFrame {
                             .addGroup(jPanel_RegistroCodornizLayout.createSequentialGroup()
                                 .addGap(56, 56, 56)
                                 .addComponent(btn_agregarCodorniz)))))
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addContainerGap(328, Short.MAX_VALUE))
         );
         jPanel_RegistroCodornizLayout.setVerticalGroup(
             jPanel_RegistroCodornizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,18 +278,17 @@ public class paginaPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(ima_logo1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(17, 17, 17)))
-                .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTabbedPane_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_agregarCodornizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarCodornizActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btn_agregarCodornizActionPerformed
 
     private void tf_identificacionCodornizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_identificacionCodornizActionPerformed
