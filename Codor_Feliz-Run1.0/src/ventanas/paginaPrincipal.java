@@ -1,7 +1,11 @@
 package ventanas;
 
 import Logica.Codorniz;
-
+import Logica.RegistroCodornices;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 public class paginaPrincipal extends javax.swing.JFrame {
 
@@ -52,6 +56,7 @@ public class paginaPrincipal extends javax.swing.JFrame {
         btn_buscarCodorniz = new javax.swing.JButton();
         jPanel_RegistroCarrera = new javax.swing.JPanel();
         jPanel_ResultadoCarrera = new javax.swing.JPanel();
+        btn_eliminarCodorniz = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Codor Feliz 1.0");
@@ -66,26 +71,7 @@ public class paginaPrincipal extends javax.swing.JFrame {
 
         jTable_listaCodornices.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Identificación", "Nombre", "Edad", "Especie", "Peso", "Dueño"
@@ -116,34 +102,15 @@ public class paginaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        tf_identificacionCodorniz.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_identificacionCodornizActionPerformed(evt);
-            }
-        });
-
-        cb_especieCodorniz.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cb_especieCodornizActionPerformed(evt);
-            }
-        });
-
-        tf_DueñoCodorniz.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_DueñoCodornizActionPerformed(evt);
-            }
-        });
-
         jLabel8.setText("Buscar:");
-
-        tf_buscarCodorniz.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_buscarCodornizActionPerformed(evt);
-            }
-        });
 
         btn_buscarCodorniz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
         btn_buscarCodorniz.setText("Buscar");
+        btn_buscarCodorniz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscarCodornizActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_RegistroCodornizLayout = new javax.swing.GroupLayout(jPanel_RegistroCodorniz);
         jPanel_RegistroCodorniz.setLayout(jPanel_RegistroCodornizLayout);
@@ -251,24 +218,37 @@ public class paginaPrincipal extends javax.swing.JFrame {
 
         jTabbedPane_Principal.addTab("Resultados de las carreras", jPanel_ResultadoCarrera);
 
+        btn_eliminarCodorniz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
+        btn_eliminarCodorniz.setText("Eliminar");
+        btn_eliminarCodorniz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarCodornizActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(138, 138, 138)
-                .addComponent(ima_logo2)
-                .addGap(18, 18, 18)
-                .addComponent(ima_logo1)
-                .addGap(90, 90, 90))
             .addGroup(layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTabbedPane_Principal)
                     .addComponent(jSeparator1))
                 .addContainerGap(34, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(138, 138, 138)
+                        .addComponent(ima_logo2)
+                        .addGap(18, 18, 18)
+                        .addComponent(ima_logo1)
+                        .addGap(90, 90, 90))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btn_eliminarCodorniz)
+                        .addGap(472, 472, 472))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,7 +264,9 @@ public class paginaPrincipal extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTabbedPane_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btn_eliminarCodorniz)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
@@ -297,33 +279,52 @@ public class paginaPrincipal extends javax.swing.JFrame {
         double peso = Double.parseDouble(tf_pesoCodorniz.getText());
         int id = Integer.parseInt(tf_identificacionCodorniz.getText());
         String nombreDueño = tf_DueñoCodorniz.getText();
-        
+
         Codorniz codor = new Codorniz(id, nombre, edad, especie, peso, nombreDueño);
-        
+
         System.out.println(codor);
         codor.guardar();
+        actualizarTablaCodorniz();
     }//GEN-LAST:event_btn_agregarCodornizActionPerformed
 
-    private void tf_identificacionCodornizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_identificacionCodornizActionPerformed
+    private void btn_eliminarCodornizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarCodornizActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tf_identificacionCodornizActionPerformed
+    }//GEN-LAST:event_btn_eliminarCodornizActionPerformed
 
-    private void tf_DueñoCodornizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_DueñoCodornizActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_DueñoCodornizActionPerformed
+    private void btn_buscarCodornizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarCodornizActionPerformed
+       
+    }//GEN-LAST:event_btn_buscarCodornizActionPerformed
 
-    private void cb_especieCodornizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_especieCodornizActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cb_especieCodornizActionPerformed
+    private void actualizarTablaCodorniz() {
+        DefaultTableModel modelo = new DefaultTableModel(null,
+                new String[]{
+                    "Identificación", "Nombre", "Edad", "Especie", "Peso", "Dueño"
+                });
 
-    private void tf_buscarCodornizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_buscarCodornizActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_buscarCodornizActionPerformed
+        RegistroCodornices registroCodornices = RegistroCodornices.obtenerInstancia();
 
+        ArrayList lista = registroCodornices.listar();
+
+        Codorniz ptr;
+        Object[] vec = null;
+        for (int i = 0; i < lista.size(); i++) {
+            modelo.addRow(vec);
+            ptr = (Codorniz) lista.get(i);
+            modelo.setValueAt(ptr.getId(), i, 0);
+            modelo.setValueAt(ptr.getNombre(), i, 1);
+            modelo.setValueAt(ptr.getEdad(), i, 2);
+            modelo.setValueAt(ptr.getEspecie(), i, 3);
+            modelo.setValueAt(ptr.getPeso(), i, 4);
+            modelo.setValueAt(ptr.getDueño(), i, 5);
+
+        }
+        this.jTable_listaCodornices.setModel(modelo);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_agregarCodorniz;
     private javax.swing.JButton btn_buscarCodorniz;
+    private javax.swing.JButton btn_eliminarCodorniz;
     private javax.swing.JComboBox<String> cb_especieCodorniz;
     private javax.swing.JLabel ima_logo1;
     private javax.swing.JLabel ima_logo2;
