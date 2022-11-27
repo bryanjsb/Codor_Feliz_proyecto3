@@ -1,5 +1,7 @@
 package ventanas;
 
+import Logica.Codorniz;
+
 
 public class paginaPrincipal extends javax.swing.JFrame {
 
@@ -106,6 +108,7 @@ public class paginaPrincipal extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel7.setText("Agregar Codorniz:");
 
+        btn_agregarCodorniz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar.png"))); // NOI18N
         btn_agregarCodorniz.setText("Agregar");
         btn_agregarCodorniz.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,7 +212,7 @@ public class paginaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(tf_edadCodorniz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tf_DueñoCodorniz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_agregarCodorniz)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel_RegistroCodornizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -288,7 +291,17 @@ public class paginaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_agregarCodornizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarCodornizActionPerformed
+        String nombre = tf_nombreCodorniz.getText();
+        int edad = Integer.parseInt(tf_edadCodorniz.getText());
+        String especie = cb_especieCodorniz.getSelectedItem().toString();
+        double peso = Double.parseDouble(tf_pesoCodorniz.getText());
+        int id = Integer.parseInt(tf_identificacionCodorniz.getText());
+        String nombreDueño = tf_DueñoCodorniz.getText();
         
+        Codorniz codor = new Codorniz(id, nombre, edad, especie, peso, nombreDueño);
+        
+        System.out.println(codor);
+        codor.guardar();
     }//GEN-LAST:event_btn_agregarCodornizActionPerformed
 
     private void tf_identificacionCodornizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_identificacionCodornizActionPerformed

@@ -4,26 +4,27 @@ import java.util.Date;
 
 public class Codorniz {
 
-    int id;
     String nombre;
     int edad;
     String especie;
     double peso;
-    int cedulaDueño;
+    int id;
     String dueño;
     Date tiempo;
+
+    private final Archivos archivos = new Archivos();
     
-    public Codorniz(String nombre, int edad, String especie, double peso, int id, String dueño) {
+    public Codorniz(int id, String nombre, int edad, String especie, double peso,  String dueño) {
         this.nombre = nombre;
         this.edad = edad;
         this.especie = especie;
         this.peso = peso;
-        this.cedulaDueño = id;
+        this.id = id;
         this.dueño = dueño;
     }
 
     public Codorniz() {
-        this("", 0, "", 0.0, 0, "");
+        this(0, "", 0, "",0.0, "");
     }
 
     public String getNombre() {
@@ -58,12 +59,12 @@ public class Codorniz {
         this.peso = peso;
     }
 
-    public int getCedulaDueño() {
-        return cedulaDueño;
+    public int getId() {
+        return id;
     }
 
-    public void setCedulaDueño(int id) {
-        this.cedulaDueño = id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDueño() {
@@ -72,14 +73,6 @@ public class Codorniz {
 
     public void setDueño(String dueño) {
         this.dueño = dueño;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Date getTiempo() {
@@ -92,16 +85,19 @@ public class Codorniz {
 
     @Override
     public String toString() {
-        
+
         StringBuilder s = new StringBuilder();
         s.append(String.format("Nombre del codorniz: %s%n", nombre));
-        s.append(String.format("Identificación: %s%n", cedulaDueño));
+        s.append(String.format("Identificación: %s%n", id));
         s.append(String.format("Dueño: %s%n", dueño));
         s.append(String.format("Especie: %s%n", especie));
         s.append(String.format("peso: %s%n", dueño));
         s.append(String.format("Edad: %s%n", edad));
-        
+  s.append(String.format("Tiempo: %s%n", tiempo));
         return s.toString();
     }
 
+    public void guardar(){
+        archivos.guardar("codornices", this);
+    }
 }

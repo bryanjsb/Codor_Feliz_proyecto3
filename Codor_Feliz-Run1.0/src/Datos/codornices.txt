@@ -1,0 +1,7 @@
+Nombre del codorniz: 1
+Identificación: 1
+Dueño: 1
+Especie: Codorniz Común
+peso: 1
+Edad: 1
+Tiempo: null
