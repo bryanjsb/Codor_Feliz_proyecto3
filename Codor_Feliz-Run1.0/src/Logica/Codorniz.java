@@ -86,17 +86,6 @@ public class Codorniz {
     @Override
     public String toString() {
 
-        /*
-        StringBuilder s = new StringBuilder();
-        s.append(String.format("Nombre del codorniz: %s%n", nombre));
-        s.append(String.format("Identificación: %s%n", id));
-        s.append(String.format("Dueño: %s%n", dueño));
-        s.append(String.format("Especie: %s%n", especie));
-        s.append(String.format("peso: %s%n", dueño));
-        s.append(String.format("Edad: %s%n", edad));
-        s.append(String.format("Tiempo: %s%n", tiempo));
-        return s.toString();
-         */
         return formatoArchivo();
 
     }
@@ -131,6 +120,10 @@ public class Codorniz {
 
     public void guardar() {
         registro.agregar(this);
+    }
+    
+    public boolean existe(int id){
+        return registro.existe(id);
     }
 
 }

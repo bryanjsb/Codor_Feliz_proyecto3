@@ -2,6 +2,7 @@ package ventanas;
 
 import Logica.Carrera;
 import Logica.Codorniz;
+import Logica.RegistroCarreras;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -11,14 +12,14 @@ public class ResultadoCarrera extends javax.swing.JFrame {
 
     public ResultadoCarrera() {
         initComponents();
-        
+
     }
 
     public ResultadoCarrera(Carrera carrera) {
-       
+
         this();
-         this.carrera = carrera;
-         actualizarTablaCarrera();
+        this.carrera = carrera;
+        actualizarTablaCarrera();
     }
 
     @SuppressWarnings("unchecked")
@@ -30,7 +31,7 @@ public class ResultadoCarrera extends javax.swing.JFrame {
         btn_salir = new javax.swing.JButton();
         btn_nuevaCarrera = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jTable_resultado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -51,6 +52,11 @@ public class ResultadoCarrera extends javax.swing.JFrame {
 
         btn_nuevaCarrera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iniciar.png"))); // NOI18N
         btn_nuevaCarrera.setText("Nueva Carrea");
+        btn_nuevaCarrera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nuevaCarreraActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,6 +88,10 @@ public class ResultadoCarrera extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_nuevaCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevaCarreraActionPerformed
+        RegistroCarreras.obtenerInstancia().agregar(carrera);
+    }//GEN-LAST:event_btn_nuevaCarreraActionPerformed
+
     private void actualizarTablaCarrera() {
         DefaultTableModel modelo = new DefaultTableModel(null,
                 new String[]{
@@ -103,7 +113,7 @@ public class ResultadoCarrera extends javax.swing.JFrame {
             modelo.setValueAt(ptr.getTiempo(), i, 4);
 
         }
-        
+
         this.jTable_resultado.setModel(modelo);
     }
 

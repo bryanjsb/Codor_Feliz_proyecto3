@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class RegistroCarreras {
 
-    private final ArrayList<Carrera> carreras;
+    private ArrayList<Carrera> carreras;
     private static RegistroCarreras registro;
-    private final Archivos archivos;
+    private final ArchivosCarrera archivos;
 
     private RegistroCarreras() {
         carreras = new ArrayList();
-        archivos = new Archivos();
+        archivos = new ArchivosCarrera();
 
     }
 
@@ -47,11 +47,11 @@ public class RegistroCarreras {
     }
 
     public void guardar() {
-        //archivos.guardar(carreras);
+        archivos.guardar(carreras);
     }
 
     public void cargar() {
-        // carreras = archivos.leerArchivos();
+         carreras = archivos.leerArchivos();
     }
 
     @Override
@@ -64,5 +64,19 @@ public class RegistroCarreras {
         s.append(String.format("%n"));
 
         return s.toString();
+    }
+    
+    
+    public boolean existe(int id){
+        boolean resultado = false;
+
+        ArrayList<Carrera> carreraptr = carreras;
+        for (Carrera carrera : carreraptr) {
+            if (carrera.getId() == id) {
+                resultado = true;
+            }
+        }
+
+        return resultado;
     }
 }

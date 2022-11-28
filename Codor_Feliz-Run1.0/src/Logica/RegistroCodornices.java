@@ -33,8 +33,9 @@ public class RegistroCodornices {
     public Codorniz obtener(int id) {
         Codorniz ptr = null;
 
-        for (Codorniz codor : codornices) {
-            if (codor.getEdad() == id) {
+        ArrayList<Codorniz> codors = codornices;
+        for (Codorniz codor : codors) {
+            if (codor.getId() == id) {
                 ptr = codor;
             }
         }
@@ -52,6 +53,19 @@ public class RegistroCodornices {
 
     public void cargar() {
         codornices = archivos.leerArchivos();
+    }
+    
+    public boolean existe(int id){
+        boolean resultado = false;
+
+        ArrayList<Codorniz> codors = codornices;
+        for (Codorniz codor : codors) {
+            if (codor.getId() == id) {
+                resultado = true;
+            }
+        }
+
+        return resultado;
     }
 
     @Override

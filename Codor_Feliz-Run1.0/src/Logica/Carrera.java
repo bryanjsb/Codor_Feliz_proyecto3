@@ -9,7 +9,7 @@ public class Carrera {
     int id;
     Date fecha;
     ArrayList<Codorniz> codornices;
-
+    int cantidad =0;
     public Carrera(int id, Date fecha) {
         this.id = id;
         this.fecha = fecha;
@@ -21,7 +21,12 @@ public class Carrera {
     }
 
     public void agregar(Codorniz codor) {
+        ++cantidad;
+        
+        if(cantidad<=5){
         codornices.add(codor);
+        }
+        
     }
 
     public void eliminar(int id) {
@@ -48,6 +53,16 @@ public class Carrera {
         this.id = id;
     }
 
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+    
+    
+
     public ArrayList<Codorniz> getCodornices() {
         return codornices;
     }
@@ -58,7 +73,24 @@ public class Carrera {
 
     @Override
     public String toString() {
-        return "Carrera{" + "id=" + id + ", fecha=" + fecha + ", codornices=%n" + codornices + '}';
+        return "Carrera{" + "id=" + id + ", fecha=" + fecha + "%n codornices=%n" + codornices + '}';
     }
 
+    
+    public boolean existe(int id){
+        boolean resultado = false;
+
+        ArrayList<Codorniz> codors = codornices;
+        for (Codorniz codor : codors) {
+            if (codor.getId() == id) {
+                resultado = true;
+            }
+        }
+
+        return resultado;
+    }
+    
+    public boolean jugadoresCompletos(){
+        return cantidad > 5;
+    }
 }

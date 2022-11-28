@@ -6,6 +6,7 @@ import Logica.RegistroCarreras;
 import Logica.RegistroCodornices;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class paginaPrincipal extends javax.swing.JFrame {
@@ -23,9 +24,17 @@ public class paginaPrincipal extends javax.swing.JFrame {
 
         inicializarValores();
         registroCodornices.cargar();
+        //registroCarreras.cargar();
+        
         actualizarTablaCodorniz();
+        inicializarResultadosCarrera();
     }
 
+    private void inicializarResultadosCarrera(){
+        
+        ta_infoCarreras.setText(registroCarreras.toString());
+        
+    }
     private void inicializarValores() {
         String[] listaEspecies = {"Codorniz Común", "Codorniz japonesa Isabelle",
             "Codorniz japonesa Tuxedo", "Codorniz bobwhite", "Codorniz Texas White",
@@ -80,7 +89,12 @@ public class paginaPrincipal extends javax.swing.JFrame {
         jTable_codornicesCarrera = new javax.swing.JTable();
         btn_iniciarCarrera = new javax.swing.JButton();
         btn_agregarCodornizCarrera = new javax.swing.JButton();
+        tf_idCarrera = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
         jPanel_ResultadoCarrera = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        ta_infoCarreras = new javax.swing.JTextArea();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Codor Feliz 1.0");
@@ -294,6 +308,14 @@ public class paginaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        tf_idCarrera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_idCarreraActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Identificación Carrera:");
+
         javax.swing.GroupLayout jPanel_RegistroCarreraLayout = new javax.swing.GroupLayout(jPanel_RegistroCarrera);
         jPanel_RegistroCarrera.setLayout(jPanel_RegistroCarreraLayout);
         jPanel_RegistroCarreraLayout.setHorizontalGroup(
@@ -304,14 +326,22 @@ public class paginaPrincipal extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addGroup(jPanel_RegistroCarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel_RegistroCarreraLayout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tf_idCodornizCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_buscarCodornizCarrera)
-                        .addGap(96, 96, 96))
+                                .addGroup(jPanel_RegistroCarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel_RegistroCarreraLayout.createSequentialGroup()
+                                        .addComponent(jLabel11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(tf_idCodornizCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel10))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btn_buscarCodornizCarrera)
+                                .addGap(96, 96, 96))
+                            .addGroup(jPanel_RegistroCarreraLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(30, 30, 30)
+                                .addGroup(jPanel_RegistroCarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tf_idCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel_RegistroCarreraLayout.createSequentialGroup()
                         .addGap(200, 200, 200)
                         .addComponent(btn_agregarCodornizCarrera)
@@ -329,17 +359,21 @@ public class paginaPrincipal extends javax.swing.JFrame {
         jPanel_RegistroCarreraLayout.setVerticalGroup(
             jPanel_RegistroCarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_RegistroCarreraLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel_RegistroCarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addGroup(jPanel_RegistroCarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel_RegistroCarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_RegistroCarreraLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel_RegistroCarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel_RegistroCarreraLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_idCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
                         .addComponent(jLabel10)
                         .addGap(27, 27, 27)
                         .addGroup(jPanel_RegistroCarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -357,15 +391,31 @@ public class paginaPrincipal extends javax.swing.JFrame {
 
         jTabbedPane_Principal.addTab("Registro de Carreras", jPanel_RegistroCarrera);
 
+        ta_infoCarreras.setColumns(20);
+        ta_infoCarreras.setRows(5);
+        jScrollPane4.setViewportView(ta_infoCarreras);
+
+        jLabel14.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel14.setText("Historico de las carreras:");
+
         javax.swing.GroupLayout jPanel_ResultadoCarreraLayout = new javax.swing.GroupLayout(jPanel_ResultadoCarrera);
         jPanel_ResultadoCarrera.setLayout(jPanel_ResultadoCarreraLayout);
         jPanel_ResultadoCarreraLayout.setHorizontalGroup(
             jPanel_ResultadoCarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 993, Short.MAX_VALUE)
+            .addComponent(jScrollPane4)
+            .addGroup(jPanel_ResultadoCarreraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addContainerGap(716, Short.MAX_VALUE))
         );
         jPanel_ResultadoCarreraLayout.setVerticalGroup(
             jPanel_ResultadoCarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 524, Short.MAX_VALUE)
+            .addGroup(jPanel_ResultadoCarreraLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jLabel14)
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jTabbedPane_Principal.addTab("Resultados de las carreras", jPanel_ResultadoCarrera);
@@ -417,11 +467,24 @@ public class paginaPrincipal extends javax.swing.JFrame {
         int id = Integer.parseInt(tf_identificacionCodorniz.getText());
         String nombreDueño = tf_DueñoCodorniz.getText();
 
-        Codorniz codor = new Codorniz(id, nombre, edad, especie, peso, nombreDueño);
+        try {
 
-        System.out.println(codor);
-        codor.guardar();
-        actualizarTablaCodorniz();
+            if (registroCodornices.existe(id)) {
+                throw new Exception("El codorniz ya existe, intente nuevamente");
+            }
+
+            Codorniz codor = new Codorniz(id, nombre, edad, especie, peso, nombreDueño);
+            System.out.println(codor);
+            codor.guardar();
+            actualizarTablaCodorniz();
+
+        } catch (Exception e) {
+            System.err.println(e);
+            JOptionPane.showMessageDialog(null, e);
+
+        }
+
+
     }//GEN-LAST:event_btn_agregarCodornizActionPerformed
 
     private void btn_eliminarCodornizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarCodornizActionPerformed
@@ -429,6 +492,24 @@ public class paginaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_eliminarCodornizActionPerformed
 
     private void btn_buscarCodornizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarCodornizActionPerformed
+
+        int id = Integer.parseInt(tf_buscarCodorniz.getText());
+
+        try {
+
+            if (!registroCodornices.existe(id)) {
+                throw new Exception("El codorniz con el ID: " + id + " no existe");
+            }
+            Codorniz codor = registroCodornices.obtener(id);
+
+            tf_identificacionCodorniz.setText(String.valueOf(codor.getId()));
+            tf_nombreCodorniz.setText(String.valueOf(codor.getNombre()));
+            tf_edadCodorniz.setText(String.valueOf(codor.getEdad()));
+            tf_pesoCodorniz.setText(String.valueOf(codor.getPeso()));
+            tf_DueñoCodorniz.setText(String.valueOf(codor.getDueño()));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
 
     }//GEN-LAST:event_btn_buscarCodornizActionPerformed
 
@@ -443,12 +524,21 @@ public class paginaPrincipal extends javax.swing.JFrame {
     private void btn_buscarCodornizCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarCodornizCarreraActionPerformed
         int id = Integer.parseInt(tf_idCodornizCarrera.getText());
 
-        Codorniz codor = registroCodornices.obtener(id);
-        ta_infoCodorCarrera.setText(codor.InfoCodorniz());
+        try {
+            if (!registroCodornices.existe(id)) {
+                throw new Exception("El codorniz con el ID: " + id + " no existe");
+            }
+            Codorniz codor = registroCodornices.obtener(id);
+            ta_infoCodorCarrera.setText(codor.InfoCodorniz());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
 
     }//GEN-LAST:event_btn_buscarCodornizCarreraActionPerformed
 
     private void btn_iniciarCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciarCarreraActionPerformed
+        //carrera.setId(Integer.parseInt(tf_idCarrera.getText()));
+         RegistroCarreras.obtenerInstancia().agregar(carrera);
         JFrame resultado = new ResultadoCarrera(carrera);
         resultado.setVisible(true);
 
@@ -456,11 +546,36 @@ public class paginaPrincipal extends javax.swing.JFrame {
 
     private void btn_agregarCodornizCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarCodornizCarreraActionPerformed
         int idCodorniz = Integer.parseInt(tf_idCodornizCarrera.getText());
-        Codorniz codor = registroCodornices.obtener(idCodorniz);
-        carrera.agregar(codor);
-
+        
+         try {
+            if (!registroCodornices.existe(idCodorniz) ) {
+                throw new Exception("El codorniz con el ID: " + idCodorniz + " no existe, intente nuevamente");
+            }
+            if( carrera.existe(idCodorniz)){
+                throw new Exception("El codorniz con el ID: " + idCodorniz + " ya fue agregado, intente nuevamente");
+            }
+            
+            Codorniz codor = registroCodornices.obtener(idCodorniz);
+            
+            try{
+                if(carrera.jugadoresCompletos()){
+                    throw new Exception("La lista de jugadores esta completo iniciar carrera");
+                }
+                carrera.agregar(codor);
+            }catch(Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+       
         actualizarTablaCarrera();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+         
     }//GEN-LAST:event_btn_agregarCodornizCarreraActionPerformed
+
+    private void tf_idCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_idCarreraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_idCarreraActionPerformed
 
     private void actualizarTablaCarrera() {
         DefaultTableModel modelo = new DefaultTableModel(null,
@@ -525,6 +640,8 @@ public class paginaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -540,14 +657,17 @@ public class paginaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane_Principal;
     private javax.swing.JTable jTable_codornicesCarrera;
     private javax.swing.JTable jTable_listaCodornices;
+    private javax.swing.JTextArea ta_infoCarreras;
     private javax.swing.JTextArea ta_infoCodorCarrera;
     private javax.swing.JTextField tf_DueñoCodorniz;
     private javax.swing.JTextField tf_buscarCodorniz;
     private javax.swing.JTextField tf_edadCodorniz;
+    private javax.swing.JTextField tf_idCarrera;
     private javax.swing.JTextField tf_idCodornizCarrera;
     private javax.swing.JTextField tf_identificacionCodorniz;
     private javax.swing.JTextField tf_nombreCodorniz;
