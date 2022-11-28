@@ -36,12 +36,12 @@ public class Archivos {
                 }
             });
 
-            bfwriter.close();
+            
         } catch (IOException ex) {
             Logger.getLogger(Archivos.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             if (f != null) {
-                try {//cierra el flujo principal
+                try {
                     f.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -64,15 +64,15 @@ public class Archivos {
                 //que valida que antes o despues de una coma (,) exista cualquier cosa
                 //parte la cadena recibida cada vez que encuentre una coma
                 delimitar.useDelimiter("\\s*,\\s*");
-                Codorniz e = new Codorniz();
-                e.setId(delimitar.nextInt());
-                e.setNombre(delimitar.next());
-                e.setEdad(delimitar.nextInt());
-                e.setEspecie(delimitar.next());
-                e.setPeso(delimitar.nextDouble());
-                e.setDueño(delimitar.next());
-                e.setTiempo(new Date());
-                codornices.add(e);
+                Codorniz codor = new Codorniz();
+                codor.setId(delimitar.nextInt());
+                codor.setNombre(delimitar.next());
+                codor.setEdad(delimitar.nextInt());
+                codor.setEspecie(delimitar.next());
+                codor.setPeso(delimitar.nextDouble());
+                codor.setDueño(delimitar.next());
+                codor.setTiempo(new Date());
+                codornices.add(codor);
             }
 
             scanner.close();

@@ -10,10 +10,14 @@ public class Carrera {
     Date fecha;
     ArrayList<Codorniz> codornices;
 
-    Carrera(int id, Date fecha) {
+    public Carrera(int id, Date fecha) {
         this.id = id;
         this.fecha = fecha;
         codornices = new ArrayList<>();
+    }
+
+    public Carrera() {
+        this(0, new Date());
     }
 
     public void agregar(Codorniz codor) {
@@ -34,6 +38,22 @@ public class Carrera {
 
     public void ordenar() {
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public ArrayList<Codorniz> getCodornices() {
+        return codornices;
+    }
+
+    public void setCodornices(ArrayList<Codorniz> codornices) {
+        this.codornices = codornices;
     }
 
     @Override

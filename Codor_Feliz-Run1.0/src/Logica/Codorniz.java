@@ -101,6 +101,20 @@ public class Codorniz {
 
     }
 
+    public String InfoCodorniz() {
+
+        StringBuilder s = new StringBuilder();
+        s.append(String.format("Nombre del codorniz: %s%n", nombre));
+        s.append(String.format("Identificación: %s%n", id));
+        s.append(String.format("Dueño: %s%n", dueño));
+        s.append(String.format("Especie: %s%n", especie));
+        s.append(String.format("peso: %s%n", dueño));
+        s.append(String.format("Edad: %s%n", edad));
+        s.append(String.format("Tiempo: %s%n", tiempo));
+        return s.toString();
+
+    }
+
     public String formatoArchivo() {
         StringBuilder s = new StringBuilder();
 
@@ -109,7 +123,7 @@ public class Codorniz {
         s.append(String.format("%d,", edad));
         s.append(String.format("%s,", especie));
         s.append(String.format("%f,", peso));
-        s.append(String.format("%s%n,", dueño));
+        s.append(String.format("%s%n", dueño));
         //s.append(String.format("%s%n", tiempo));
 
         return s.toString();
