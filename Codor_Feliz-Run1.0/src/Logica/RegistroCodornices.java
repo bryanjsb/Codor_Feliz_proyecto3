@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 public class RegistroCodornices {
 
-    private final ArrayList<Codorniz> codornices;
+    private ArrayList<Codorniz> codornices;
     private static RegistroCodornices registro;
     private final Archivos archivos;
 
     private RegistroCodornices() {
         codornices = new ArrayList();
         archivos = new Archivos();
+
     }
 
     public static RegistroCodornices obtenerInstancia() {
@@ -43,6 +44,26 @@ public class RegistroCodornices {
 
     public ArrayList<Codorniz> listar() {
         return codornices;
+    }
+
+    public void guardar() {
+        archivos.guardar(codornices);
+    }
+
+    public void cargar() {
+        codornices = archivos.leerArchivos();
+    }
+
+    @Override
+    public String toString() {
+
+        StringBuilder s = new StringBuilder();
+
+        s.append(String.format("%s", codornices));
+
+        s.append(String.format("%n"));
+
+        return s.toString();
     }
 
 }

@@ -3,8 +3,6 @@ package ventanas;
 import Logica.Codorniz;
 import Logica.RegistroCodornices;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class paginaPrincipal extends javax.swing.JFrame {
@@ -12,6 +10,9 @@ public class paginaPrincipal extends javax.swing.JFrame {
     public paginaPrincipal() {
         initComponents();
         inicializarValores();
+        RegistroCodornices registroCodornices = RegistroCodornices.obtenerInstancia();
+        registroCodornices.cargar();
+        actualizarTablaCodorniz();
     }
 
     private void inicializarValores() {
@@ -61,6 +62,11 @@ public class paginaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Codor Feliz 1.0");
         setLocationByPlatform(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel_titulo.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jLabel_titulo.setText("Codor Feliz Run 1.0");
@@ -292,8 +298,13 @@ public class paginaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_eliminarCodornizActionPerformed
 
     private void btn_buscarCodornizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarCodornizActionPerformed
-       
+
     }//GEN-LAST:event_btn_buscarCodornizActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        RegistroCodornices registroCodornices = RegistroCodornices.obtenerInstancia();
+        registroCodornices.guardar();
+    }//GEN-LAST:event_formWindowClosing
 
     private void actualizarTablaCodorniz() {
         DefaultTableModel modelo = new DefaultTableModel(null,
@@ -318,6 +329,7 @@ public class paginaPrincipal extends javax.swing.JFrame {
             modelo.setValueAt(ptr.getDueño(), i, 5);
 
         }
+
         this.jTable_listaCodornices.setModel(modelo);
     }
 

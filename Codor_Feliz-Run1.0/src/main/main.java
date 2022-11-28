@@ -2,11 +2,10 @@ package main;
 
 import ventanas.paginaPrincipal;
 
-
 public class main {
 
- public static void main(String args[]) {
-    
+    public static void main(String args[]) {
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
@@ -14,15 +13,15 @@ public class main {
                     break;
                 }
             }
-        } catch (ClassNotFoundException | InstantiationException 
+        } catch (ClassNotFoundException | InstantiationException
                 | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(paginaPrincipal.class.getName())
                     .log(java.util.logging.Level.SEVERE, null, ex);
         }
-        
+
         java.awt.EventQueue.invokeLater(() -> {
             new paginaPrincipal().setVisible(true);
         });
     }
-    
+
 }
