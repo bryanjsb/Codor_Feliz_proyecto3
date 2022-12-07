@@ -126,4 +126,7 @@ public class Codorniz {
         return registro.existe(id);
     }
 
+    public void actualizar(){
+        registro.actualizar(this);
+    }
 }

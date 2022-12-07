@@ -76,6 +76,8 @@ public class paginaPrincipal extends javax.swing.JFrame {
         tf_buscarCodorniz = new javax.swing.JTextField();
         btn_buscarCodorniz = new javax.swing.JButton();
         btn_eliminarCodorniz = new javax.swing.JButton();
+        btn_actualizarCodorniz = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
         jPanel_RegistroCarrera = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -163,6 +165,16 @@ public class paginaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btn_actualizarCodorniz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/actualizar.png"))); // NOI18N
+        btn_actualizarCodorniz.setText("Actualizar");
+        btn_actualizarCodorniz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_actualizarCodornizActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setText("Ingrese el ID");
+
         javax.swing.GroupLayout jPanel_RegistroCodornizLayout = new javax.swing.GroupLayout(jPanel_RegistroCodorniz);
         jPanel_RegistroCodorniz.setLayout(jPanel_RegistroCodornizLayout);
         jPanel_RegistroCodornizLayout.setHorizontalGroup(
@@ -173,13 +185,6 @@ public class paginaPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel_RegistroCodornizLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jLabel7))
-                    .addGroup(jPanel_RegistroCodornizLayout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tf_buscarCodorniz, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_buscarCodorniz))
                     .addGroup(jPanel_RegistroCodornizLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel_RegistroCodornizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -192,24 +197,32 @@ public class paginaPrincipal extends javax.swing.JFrame {
                             .addComponent(tf_nombreCodorniz, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tf_identificacionCodorniz, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGroup(jPanel_RegistroCodornizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel_RegistroCodornizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cb_especieCodorniz, 0, 192, Short.MAX_VALUE)
+                            .addComponent(tf_pesoCodorniz)
+                            .addComponent(tf_DueñoCodorniz)))
+                    .addGroup(jPanel_RegistroCodornizLayout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel_RegistroCodornizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel_RegistroCodornizLayout.createSequentialGroup()
-                                .addGroup(jPanel_RegistroCodornizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addComponent(jLabel15)
+                                .addGap(102, 102, 102)
+                                .addComponent(btn_agregarCodorniz)
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_actualizarCodorniz))
+                            .addGroup(jPanel_RegistroCodornizLayout.createSequentialGroup()
+                                .addComponent(tf_buscarCodorniz, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_buscarCodorniz)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel_RegistroCodornizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cb_especieCodorniz, 0, 192, Short.MAX_VALUE)
-                                    .addComponent(tf_pesoCodorniz)
-                                    .addComponent(tf_DueñoCodorniz)))
-                            .addGroup(jPanel_RegistroCodornizLayout.createSequentialGroup()
-                                .addGap(56, 56, 56)
-                                .addComponent(btn_agregarCodorniz)))))
-                .addContainerGap(359, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_RegistroCodornizLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btn_eliminarCodorniz)
-                .addGap(433, 433, 433))
+                                .addComponent(btn_eliminarCodorniz)))))
+                .addContainerGap(349, Short.MAX_VALUE))
         );
         jPanel_RegistroCodornizLayout.setVerticalGroup(
             jPanel_RegistroCodornizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,18 +247,24 @@ public class paginaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(tf_edadCodorniz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tf_DueñoCodorniz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(btn_agregarCodorniz)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(jPanel_RegistroCodornizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_RegistroCodornizLayout.createSequentialGroup()
+                        .addGroup(jPanel_RegistroCodornizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_agregarCodorniz)
+                            .addComponent(btn_actualizarCodorniz))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_RegistroCodornizLayout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addGap(1, 1, 1)))
                 .addGroup(jPanel_RegistroCodornizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(tf_buscarCodorniz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_buscarCodorniz))
+                    .addComponent(btn_buscarCodorniz)
+                    .addComponent(btn_eliminarCodorniz))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_eliminarCodorniz)
-                .addGap(14, 14, 14))
+                .addGap(58, 58, 58))
         );
 
         jTabbedPane_Principal.addTab("Registro Codornices", jPanel_RegistroCodorniz);
@@ -488,7 +507,21 @@ public class paginaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_agregarCodornizActionPerformed
 
     private void btn_eliminarCodornizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarCodornizActionPerformed
-        // TODO add your handling code here:
+        int id = Integer.parseInt(tf_buscarCodorniz.getText());
+        
+        try {
+
+            if (!registroCodornices.existe(id)) {
+                throw new Exception("El codorniz con el ID: " + id + " no existe");
+            }
+            
+            registroCodornices.eliminar(id);
+
+          actualizarTablaCodorniz();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
     }//GEN-LAST:event_btn_eliminarCodornizActionPerformed
 
     private void btn_buscarCodornizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarCodornizActionPerformed
@@ -577,6 +610,38 @@ public class paginaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_idCarreraActionPerformed
 
+    private void btn_actualizarCodornizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarCodornizActionPerformed
+        String nombre = tf_nombreCodorniz.getText();
+        int edad = Integer.parseInt(tf_edadCodorniz.getText());
+        String especie = cb_especieCodorniz.getSelectedItem().toString();
+        double peso = Double.parseDouble(tf_pesoCodorniz.getText());
+        int id = Integer.parseInt(tf_identificacionCodorniz.getText());
+        String nombreDueño = tf_DueñoCodorniz.getText();
+        
+        
+        try {
+            Codorniz codor = registroCodornices.obtener(id);
+            if (codor == null) {
+                throw new Exception("El codorniz con el ID: " + id + " es nulo");
+            }
+            
+            codor.setNombre(nombre);
+            codor.setEdad(edad);
+            codor.setEspecie(especie);
+            codor.setPeso(peso);
+            codor.setDueño(nombreDueño);
+            
+            codor.actualizar();
+            
+            
+            
+            actualizarTablaCodorniz();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }//GEN-LAST:event_btn_actualizarCodornizActionPerformed
+
     private void actualizarTablaCarrera() {
         DefaultTableModel modelo = new DefaultTableModel(null,
                 new String[]{
@@ -623,10 +688,11 @@ public class paginaPrincipal extends javax.swing.JFrame {
 
         }
 
-        this.jTable_listaCodornices.setModel(modelo);
+        jTable_listaCodornices.setModel(modelo);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_actualizarCodorniz;
     private javax.swing.JButton btn_agregarCodorniz;
     private javax.swing.JButton btn_agregarCodornizCarrera;
     private javax.swing.JButton btn_buscarCodorniz;
@@ -642,6 +708,7 @@ public class paginaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

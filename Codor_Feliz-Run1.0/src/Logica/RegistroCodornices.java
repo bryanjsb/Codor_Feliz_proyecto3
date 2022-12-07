@@ -26,8 +26,17 @@ public class RegistroCodornices {
 
     }
 
-    public void eliminar(Codorniz codor) {
+    public void eliminar(int id) {
+        Codorniz codor = this.obtener(id);
         codornices.remove(codor);
+        
+      /*
+        for (Codorniz codor : codornices) {
+            if (codor.getId() == id) {
+                codornices.remove(codor);
+            }
+        }
+      */
     }
 
     public Codorniz obtener(int id) {
@@ -54,8 +63,8 @@ public class RegistroCodornices {
     public void cargar() {
         codornices = archivos.leerArchivos();
     }
-    
-    public boolean existe(int id){
+
+    public boolean existe(int id) {
         boolean resultado = false;
 
         ArrayList<Codorniz> codors = codornices;
@@ -66,6 +75,20 @@ public class RegistroCodornices {
         }
 
         return resultado;
+    }
+
+    public void actualizar(Codorniz codorPtr) {
+
+        for (Codorniz codor : codornices) {
+            if (codor.getId() == codorPtr.getId()) {
+                codor.setDueño(codorPtr.getDueño());
+                codor.setNombre(codorPtr.getNombre());
+                codor.setEdad(codorPtr.getEdad());
+                codor.setEspecie(codorPtr.getEspecie());
+                codor.setPeso(codorPtr.getPeso());
+            }
+        }
+
     }
 
     @Override
