@@ -97,7 +97,7 @@ public class Codorniz {
         s.append(String.format("Identificación: %s%n", id));
         s.append(String.format("Dueño: %s%n", dueño));
         s.append(String.format("Especie: %s%n", especie));
-        s.append(String.format("peso: %s%n", dueño));
+        s.append(String.format("peso: %s%n", peso));
         s.append(String.format("Edad: %s%n", edad));
         s.append(String.format("Tiempo: %s%n", tiempo));
         return s.toString();
@@ -121,12 +121,12 @@ public class Codorniz {
     public void guardar() {
         registro.agregar(this);
     }
-    
-    public boolean existe(int id){
+
+    public boolean existe(int id) {
         return registro.existe(id);
     }
 
-    public void actualizar(){
+    public void actualizar() {
         registro.actualizar(this);
     }
 }

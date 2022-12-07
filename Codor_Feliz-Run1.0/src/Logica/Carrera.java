@@ -2,14 +2,16 @@ package Logica;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.Random;
 
 public class Carrera {
 
     int id;
     Date fecha;
     ArrayList<Codorniz> codornices;
-    int cantidad =0;
+
     public Carrera(int id, Date fecha) {
         this.id = id;
         this.fecha = fecha;
@@ -21,12 +23,11 @@ public class Carrera {
     }
 
     public void agregar(Codorniz codor) {
-        ++cantidad;
-        
-        if(cantidad<=5){
-        codornices.add(codor);
+
+        if (codornices.size() <= 5) {
+            codornices.add(codor);
         }
-        
+
     }
 
     public void eliminar(int id) {
@@ -60,8 +61,6 @@ public class Carrera {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    
-    
 
     public ArrayList<Codorniz> getCodornices() {
         return codornices;
@@ -73,11 +72,19 @@ public class Carrera {
 
     @Override
     public String toString() {
-        return "Carrera{" + "id=" + id + ", fecha=" + fecha + "%n codornices=%n" + codornices + '}';
+
+        StringBuilder s = new StringBuilder();
+        s.append(String.format("Id Carrera: %s%n", id));
+        s.append(String.format("Fecha: %s%n", fecha));
+        for (Codorniz codor : codornices) {
+            s.append(String.format("%s", codor.toString()));
+        }
+        s.append(String.format("%n"));
+        return s.toString();
+
     }
 
-    
-    public boolean existe(int id){
+    public boolean existe(int id) {
         boolean resultado = false;
 
         ArrayList<Codorniz> codors = codornices;
@@ -89,8 +96,13 @@ public class Carrera {
 
         return resultado;
     }
-    
-    public boolean jugadoresCompletos(){
-        return cantidad > 5;
+
+    public boolean jugadoresCompletos() {
+        return codornices.size() == 5;
+    }
+
+    //https://masqueprogramar.wordpress.com/2019/02/05/desordenar-elementos-array/
+    public void desordenar() {
+        Collections.shuffle(codornices);
     }
 }

@@ -4,6 +4,7 @@ import Logica.Carrera;
 import Logica.Codorniz;
 import Logica.RegistroCarreras;
 import java.util.ArrayList;
+import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
 public class ResultadoCarrera extends javax.swing.JFrame {
@@ -30,8 +31,11 @@ public class ResultadoCarrera extends javax.swing.JFrame {
         jTable_resultado = new javax.swing.JTable();
         btn_salir = new javax.swing.JButton();
         btn_nuevaCarrera = new javax.swing.JButton();
+        img_trofeo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Resultados");
+        setLocationByPlatform(true);
 
         jTable_resultado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -48,15 +52,22 @@ public class ResultadoCarrera extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable_resultado);
 
         btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
-        btn_salir.setText("Salir");
+        btn_salir.setText("Salir del programa");
+        btn_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salirActionPerformed(evt);
+            }
+        });
 
         btn_nuevaCarrera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iniciar.png"))); // NOI18N
-        btn_nuevaCarrera.setText("Nueva Carrea");
+        btn_nuevaCarrera.setText("Nueva Carrera");
         btn_nuevaCarrera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_nuevaCarreraActionPerformed(evt);
             }
         });
+
+        img_trofeo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/trofeo.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,31 +77,39 @@ public class ResultadoCarrera extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(307, 307, 307)
-                        .addComponent(btn_nuevaCarrera))
+                        .addGap(250, 250, 250)
+                        .addComponent(img_trofeo))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(327, 327, 327)
-                        .addComponent(btn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(307, 307, 307)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_salir)
+                            .addComponent(btn_nuevaCarrera))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(266, Short.MAX_VALUE)
+                .addContainerGap(57, Short.MAX_VALUE)
+                .addComponent(img_trofeo)
+                .addGap(52, 52, 52)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
+                .addGap(63, 63, 63)
                 .addComponent(btn_nuevaCarrera)
-                .addGap(42, 42, 42)
+                .addGap(50, 50, 50)
                 .addComponent(btn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83))
+                .addGap(73, 73, 73))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_nuevaCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevaCarreraActionPerformed
-        RegistroCarreras.obtenerInstancia().agregar(carrera);
+        this.dispose();
     }//GEN-LAST:event_btn_nuevaCarreraActionPerformed
+
+    private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btn_salirActionPerformed
 
     private void actualizarTablaCarrera() {
         DefaultTableModel modelo = new DefaultTableModel(null,
@@ -106,7 +125,6 @@ public class ResultadoCarrera extends javax.swing.JFrame {
             modelo.addRow(vec);
             ptr = lista.get(i);
 
-            modelo.setValueAt("posicion", i, 0);
             modelo.setValueAt(ptr.getId(), i, 1);
             modelo.setValueAt(ptr.getNombre(), i, 2);
             modelo.setValueAt(ptr.getDueño(), i, 3);
@@ -114,12 +132,19 @@ public class ResultadoCarrera extends javax.swing.JFrame {
 
         }
 
+        modelo.setValueAt("Ganador, 1°", 0, 0);
+        modelo.setValueAt("2°", 1, 0);
+        modelo.setValueAt("3°", 2, 0);
+        modelo.setValueAt("4°", 3, 0);
+        modelo.setValueAt("5°", 4, 0);
+
         this.jTable_resultado.setModel(modelo);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_nuevaCarrera;
     private javax.swing.JButton btn_salir;
+    private javax.swing.JLabel img_trofeo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_resultado;
     // End of variables declaration//GEN-END:variables

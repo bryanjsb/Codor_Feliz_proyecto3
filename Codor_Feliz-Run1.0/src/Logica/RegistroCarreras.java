@@ -21,7 +21,9 @@ public class RegistroCarreras {
     public void agregar(Carrera carrera) {
 
         if (!carreras.contains(carrera)) {
-            carreras.add(carrera);
+            Carrera ptr = new Carrera(carrera.id, carrera.fecha);
+            ptr.setCodornices(carrera.codornices);
+            carreras.add(ptr);
         }
 
     }
@@ -51,7 +53,7 @@ public class RegistroCarreras {
     }
 
     public void cargar() {
-         carreras = archivos.leerArchivos();
+        carreras = archivos.leerArchivos();
     }
 
     @Override
@@ -59,15 +61,14 @@ public class RegistroCarreras {
 
         StringBuilder s = new StringBuilder();
 
-        s.append(String.format("%s", carreras));
-
-        s.append(String.format("%n"));
+        for (Carrera carrera : carreras) {
+            s.append(String.format("%s%n", carrera.toString()));
+        }
 
         return s.toString();
     }
-    
-    
-    public boolean existe(int id){
+
+    public boolean existe(int id) {
         boolean resultado = false;
 
         ArrayList<Carrera> carreraptr = carreras;

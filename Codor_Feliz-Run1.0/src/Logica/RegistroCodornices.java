@@ -29,14 +29,14 @@ public class RegistroCodornices {
     public void eliminar(int id) {
         Codorniz codor = this.obtener(id);
         codornices.remove(codor);
-        
-      /*
+
+        /*
         for (Codorniz codor : codornices) {
             if (codor.getId() == id) {
                 codornices.remove(codor);
             }
         }
-      */
+         */
     }
 
     public Codorniz obtener(int id) {
