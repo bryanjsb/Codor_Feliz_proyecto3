@@ -6,11 +6,11 @@ public class RegistroCodornices {
 
     private ArrayList<Codorniz> codornices;
     private static RegistroCodornices registro;
-    private final Archivos archivos;
+    private final ArchivosCodorniz archivos;
 
     private RegistroCodornices() {
         codornices = new ArrayList();
-        archivos = new Archivos();
+        archivos = new ArchivosCodorniz();
 
     }
 
@@ -30,13 +30,7 @@ public class RegistroCodornices {
         Codorniz codor = this.obtener(id);
         codornices.remove(codor);
 
-        /*
-        for (Codorniz codor : codornices) {
-            if (codor.getId() == id) {
-                codornices.remove(codor);
-            }
-        }
-         */
+     
     }
 
     public Codorniz obtener(int id) {

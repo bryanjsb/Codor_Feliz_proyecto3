@@ -62,7 +62,7 @@ public class RegistroCarreras {
         StringBuilder s = new StringBuilder();
 
         for (Carrera carrera : carreras) {
-            s.append(String.format("%s%n", carrera.toString()));
+            s.append(String.format("%s%n", carrera.mostrarInfo()));
         }
 
         return s.toString();

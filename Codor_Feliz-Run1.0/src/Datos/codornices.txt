@@ -1,6 +1,7 @@
 2,luis,50,Codorniz bobwhite,5.000000,Marilyn
 3,2,2,Codorniz Común,2.000000,br
-5,2,2,Codorniz Común,2.000000,2
 6,2,2,Codorniz Común,2.000000,2
-1,1,1,Codorniz Común,1.000000,1
+1,1,1,Codorniz Común,1.000000,5
 4,4,4,Codorniz Común,4.000000,4
+7,CRIS,1,Codorniz japonesa Isabelle,8.000000,LISA
+5,2,3,Codorniz japonesa Isabelle,2.000000,2

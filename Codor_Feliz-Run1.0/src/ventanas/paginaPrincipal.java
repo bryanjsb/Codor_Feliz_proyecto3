@@ -24,10 +24,10 @@ public class paginaPrincipal extends javax.swing.JFrame {
 
         inicializarValores();
         registroCodornices.cargar();
-        //registroCarreras.cargar();
+        registroCarreras.cargar();
 
         actualizarTablaCodorniz();
-        // inicializarResultadosCarrera();
+        //inicializarResultadosCarrera();
     }
 
     private void inicializarResultadosCarrera() {
@@ -564,6 +564,7 @@ public class paginaPrincipal extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         registroCodornices.guardar();
+        registroCarreras.guardar();
     }//GEN-LAST:event_formWindowClosing
 
     private void tf_idCodornizCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_idCodornizCarreraActionPerformed

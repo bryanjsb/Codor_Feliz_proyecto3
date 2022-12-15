@@ -72,15 +72,8 @@ public class Carrera {
 
     @Override
     public String toString() {
-
-        StringBuilder s = new StringBuilder();
-        s.append(String.format("Id Carrera: %s%n", id));
-        s.append(String.format("Fecha: %s%n", fecha));
-        for (Codorniz codor : codornices) {
-            s.append(String.format("%s", codor.toString()));
-        }
-        s.append(String.format("%n"));
-        return s.toString();
+        return formatoArchivo();
+      
 
     }
 
@@ -105,4 +98,37 @@ public class Carrera {
     public void desordenar() {
         Collections.shuffle(codornices);
     }
+    
+    public String formatoArchivo(){
+        StringBuilder s = new StringBuilder();
+        s.append(String.format("%d,",id));
+      
+        int contador = 1;
+       for(Codorniz codor : this.codornices){
+        
+         if(contador == 5){
+              s.append(String.format("%d",codor.getId()));
+         }else{
+              s.append(String.format("%d,",codor.getId()));
+         }
+         contador++;
+         
+       }   
+       s.append(String.format("%n"));    
+           
+        return s.toString();
+        
+    }
+    public String mostrarInfo(){
+          StringBuilder s = new StringBuilder();
+        s.append(String.format("Id Carrera: %s%n", id));
+        s.append(String.format("Fecha: %s%n", fecha));
+        for (Codorniz codor : codornices) {
+            s.append(String.format("%s", codor.toString()));
+        }
+        s.append(String.format("%n"));
+        return s.toString();
+    }
 }
+
+
